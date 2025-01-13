@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rolly thingy</title>
+    <style>
+        img {
+            width: 50px; /* Adjust size of dice */
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <div>
+        <input type="checkbox" id="dice1" /> 
+        <img id="dice-image-1" src="dice-six-faces-one.png" >
+    </div>
+    <div>
+        <input type="checkbox" id="dice2" /> 
+        <img id="dice-image-2" src="dice-six-faces-two.png" >
+    </div>
+    <div>
+        <input type="checkbox" id="dice3" /> 
+        <img id="dice-image-3" src="dice-six-faces-three.png" >
+    </div>
+    <div>
+        <input type="checkbox" id="dice4" /> 
+        <img id="dice-image-4" src="dice-six-faces-four.png">
+    </div>
+    <div>
+        <input type="checkbox" id="dice5" /> 
+        <img id="dice-image-5" src="dice-six-faces-five.png">
+    </div>
+    <div>
+        <input type="checkbox" id="dice6" /> 
+        <img id="dice-image-6" src="dice-six-faces-six.png">
+    </div>
+</div>
+
+<button onclick="rollDice()">Roll Selected Dice</button>
+
+<script>
+const diceImages = [
+    "dice-six-faces-one.png", 
+    "dice-six-faces-two.png", 
+    "dice-six-faces-three.png", 
+    "dice-six-faces-four.png", 
+    "dice-six-faces-five.png", 
+    "dice-six-faces-six.png"  
+];
+
+function rollDice() {
+    for (let i = 1; i <= 6; i++) {
+        const diceChecked = document.getElementById('dice' + i).checked;
+        
+        if (diceChecked) {
+            // rand numb 1 and 6
+            const randomValue = Math.floor(Math.random() * 6);
+            const diceImage = diceImages[randomValue];
+            // Change the dice image
+            document.getElementById('dice-image-' + i).src = diceImage;
+        }
+    }}
+</script>
+</body>
+</html>
